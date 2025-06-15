@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batu Alam Nusantara</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: #fffaf5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: #3e2c1c;
+        color: #fff;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      header h1 {
+        font-size: 1.2rem;
+      }
+
+      nav a {
+        margin-left: 1rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .hero {
+        background: url("https://images.unsplash.com/photo-1596495577886-d920f1fb7238")
+          center/cover no-repeat;
+        padding: 4rem 2rem;
+        text-align: center;
+        color: #fff;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        margin-bottom: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        margin: 0.5rem;
+        background-color: #6b4c34;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .btn:hover {
+        background-color: #8d4b3a;
+        transition: 0.3s ease;
+      }
+
+      .features,
+      .produk,
+      .pemasangan,
+      .galeri,
+      .testimoni,
+      .kontak {
+        padding: 3rem 2rem;
+      }
+
+      .features .item,
+      .produk .item,
+      .galeri .item {
+        text-align: center;
+        margin: 1rem;
+      }
+
+      .features,
+      .produk,
+      .galeri {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .produk img,
+      .galeri img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 6px;
+      }
+
+      .pemasangan img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 6px;
+        margin: 1rem 0;
+      }
+
+      .testimoni blockquote {
+        background-color: #f5f2ed;
+        padding: 1rem;
+        border-left: 5px solid #c2a88b;
+        margin: 1rem 0;
+        font-style: italic;
+      }
+
+      .kontak input,
+      .kontak textarea {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      footer {
+        background-color: #3e2c1c;
+        color: white;
+        text-align: center;
+        padding: 1rem 2rem;
+        margin-top: 2rem;
+      }
+
+      @media (max-width: 768px) {
+        header,
+        .features,
+        .produk,
+        .galeri {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Batu Alam Nusantara</h1>
+      <nav>
+        <a href="#produk">Produk</a>
+        <a href="#pemasangan">Pemasangan</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#kontak">Kontak</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Solusi Batu Alam Terbaik untuk Hunian Anda</h2>
+      <p>Jual batu alam berkualitas untuk keperluan konstruksi dan dekorasi.</p>
+      <button class="btn">Lihat Produk</button>
+      <a
+        href="https://wa.me/6288808975035?text=Halo,%20saya%20tertarik%20dengan%20produk%20batu%20alam%20Anda"
+        target="_blank"
+        class="btn"
+        >Hubungi via WhatsApp</a
+      >
+    </section>
+
+    <section class="features">
+      <div class="item">
+        <p>🪨</p>
+        <strong>Batu Berkualitas</strong>
+      </div>
+      <div class="item">
+        <p>👷</p>
+        <strong>Tenaga Profesional</strong>
+      </div>
+      <div class="item">
+        <p>🚚</p>
+        <strong>Pengiriman Cepat</strong>
+      </div>
+      <div class="item">
+        <p>📞</p>
+        <strong>Konsultasi Gratis</strong>
+      </div>
+    </section>
+
+    <section id="produk" class="produk" data-aos="fade-up">
+      <h2>Produk Unggulan</h2>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?andesite,stone"
+          alt="Andesit"
+        />
+        <p>Andesit</p>
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?natural,stone"
+          alt="Palimanan"
+        />
+        <p>Palimanan</p>
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?temple,stone"
+          alt="Candi"
+        />
+        <p>Candi</p>
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?slate,stone"
+          alt="Sabak"
+        />
+        <p>Sabak</p>
+      </div>
+    </section>
+
+    <section id="pemasangan" class="pemasangan">
+      <h2>Jasa Pemasangan</h2>
+      <p>
+        Kami menyediakan layanan pemasangan batu alam yang rapi dan profesional.
+      </p>
+      <img
+        src="https://source.unsplash.com/600x400/?stone,wall"
+        alt="Pemasangan Batu Alam"
+      />
+      <button class="btn">Lihat Portofolio</button>
+    </section>
+
+    <section id="galeri" class="galeri">
+      <h2>Galeri Proyek</h2>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?stone,house"
+          alt="Galeri 1"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?stone,fence"
+          alt="Galeri 2"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?stone,pathway"
+          alt="Galeri 3"
+        />
+      </div>
+      <div class="item">
+        <img
+          src="https://source.unsplash.com/200x150/?stone,interior"
+          alt="Galeri 4"
+        />
+      </div>
+    </section>
+
+    <section class="testimoni">
+      <h2>Testimoni Pelanggan</h2>
+      <blockquote>
+        "Pelayanannya cepat dan hasil pemasangannya sangat memuaskan!"<br />
+        <strong>- Bapak Eko Sutrisno</strong>
+      </blockquote>
+    </section>
+
+    <section id="kontak" class="kontak">
+      <h2>Kontak & CTA</h2>
+      <form>
+        <input type="text" placeholder="Nama Anda" required />
+        <input type="email" placeholder="Email" required />
+        <textarea placeholder="Pesan Anda" rows="4"></textarea>
+        <button class="btn" type="submit">Kirim</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Batu Alam Nusantara. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
