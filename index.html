@@ -3,304 +3,238 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Batu Alam Nusantara</title>
+    <title>Sinar Pajar Alam Perkasa</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Inter", sans-serif;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background-color: #fffaf5;
-        color: #333;
-        line-height: 1.6;
-      }
-
-      header {
-        background-color: #3e2c1c;
-        color: #fff;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      }
-
-      header h1 {
-        font-size: 1.2rem;
-      }
-
-      nav a {
-        margin-left: 1rem;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 500;
-      }
-
-      .hero {
-        background: url("https://images.unsplash.com/photo-1596495577886-d920f1fb7238")
-          center/cover no-repeat;
-        padding: 4rem 2rem;
-        text-align: center;
-        color: #fff;
-      }
-
-      .hero h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .hero p {
-        margin-bottom: 1.5rem;
-      }
-
-      .btn {
-        padding: 0.75rem 1.5rem;
-        margin: 0.5rem;
-        background-color: #6b4c34;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-
-      .btn:hover {
-        background-color: #8d4b3a;
-        transition: 0.3s ease;
-      }
-
-      .features,
-      .produk,
-      .pemasangan,
-      .galeri,
-      .testimoni,
-      .kontak {
-        padding: 3rem 2rem;
-      }
-
-      .features .item,
-      .produk .item,
-      .galeri .item {
-        text-align: center;
-        margin: 1rem;
-      }
-
-      .features,
-      .produk,
-      .galeri {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .produk img,
-      .galeri img {
-        width: 100%;
-        max-width: 200px;
-        height: auto;
-        border-radius: 6px;
-      }
-
-      .pemasangan img {
-        width: 100%;
-        max-width: 600px;
-        border-radius: 6px;
-        margin: 1rem 0;
-      }
-
-      .testimoni blockquote {
-        background-color: #f5f2ed;
-        padding: 1rem;
-        border-left: 5px solid #c2a88b;
-        margin: 1rem 0;
-        font-style: italic;
-      }
-
-      .kontak input,
-      .kontak textarea {
-        width: 100%;
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-      }
-
-      footer {
-        background-color: #3e2c1c;
-        color: white;
-        text-align: center;
-        padding: 1rem 2rem;
-        margin-top: 2rem;
-      }
-
-      @media (max-width: 768px) {
-        header,
-        .features,
-        .produk,
-        .galeri {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .hero h2 {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <header>
-      <h1>Batu Alam Nusantara</h1>
-      <nav>
-        <a href="#produk">Produk</a>
-        <a href="#pemasangan">Pemasangan</a>
-        <a href="#galeri">Galeri</a>
-        <a href="#kontak">Kontak</a>
+    <header
+      class="bg-[#4a2d14] text-white px-4 py-3 flex items-center justify-between"
+    >
+      <!-- Kiri: Logo / Judul -->
+      <h1 class="text-lg font-bold">Sinar Pajar Alam Perkasa</h1>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#produk" class="hover:text-gray-300">Product</a>
+        <a href="#pemasangan" class="hover:text-gray-300">Article</a>
+        <a href="#galeri" class="hover:text-gray-300">Project</a>
       </nav>
+
+      <!-- Hamburger Mobile -->
+      <button id="menu-toggle" class="md:hidden ml-auto focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </header>
-
-    <section class="hero">
-      <h2>Solusi Batu Alam Terbaik untuk Hunian Anda</h2>
-      <p>Jual batu alam berkualitas untuk keperluan konstruksi dan dekorasi.</p>
-      <button class="btn">Lihat Produk</button>
-      <a
-        href="https://wa.me/6288808975035?text=Halo,%20saya%20tertarik%20dengan%20produk%20batu%20alam%20Anda"
-        target="_blank"
-        class="btn"
-        >Hubungi via WhatsApp</a
+    <div
+      id="mobile-menu"
+      class="fixed top-0 right-0 min-h-screen w-2/3 bg-[#1f2937] text-white px-6 py-6 space-y-6 md:hidden z-50 shadow-lg transform translate-x-full transition-transform duration-300 overflow-y-auto"
+    >
+      <a href="#produk" class="block text-lg hover:text-gray-300">Product</a>
+      <a href="#pemasangan" class="block text-lg hover:text-gray-300"
+        >Article</a
       >
+      <a href="#galeri" class="block text-lg hover:text-gray-300">Project</a>
+    </div>
+
+    <section class="carousel relative bg-gray-100">
+      <div class="mx-auto overflow-hidden">
+        <div
+          id="carousel"
+          class="flex transition-transform duration-500 ease-in-out"
+        >
+          <div class="w-full flex-shrink-0">
+            <img
+              src="assets/batu1.jpg"
+              alt="Slide 1"
+              class="w-full h-[300px] md:h-[500px] object-cover"
+            />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img
+              src="assets/batu2.jpg"
+              alt="Slide 2"
+              class="w-full h-[300px] md:h-[500px] object-cover"
+            />
+          </div>
+          <div class="w-full flex-shrink-0">
+            <img
+              src="assets/batu3.jpg"
+              alt="Slide 3"
+              class="w-full h-[300px] md:h-[500px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- Controls -->
+      <button
+        id="prev"
+        class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
+      >
+        &#10094;
+      </button>
+      <button
+        id="next"
+        class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-75"
+      >
+        &#10095;
+      </button>
     </section>
 
-    <section class="features">
-      <div class="item">
-        <p>🪨</p>
-        <strong>Batu Berkualitas</strong>
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-0">
+      <!-- Item 1 -->
+      <div class="relative group h-[300px] md:h-[400px] cursor-pointer">
+        <img
+          src="assets/batu1.jpg"
+          class="w-full h-full object-cover"
+          alt="Automobile"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:from-black/50 transition duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4"
+        >
+          <h3 class="text-xl md:text-2xl font-bold tracking-wide">PRODUCT</h3>
+        </div>
       </div>
-      <div class="item">
-        <p>👷</p>
-        <strong>Tenaga Profesional</strong>
+
+      <!-- Item 2 -->
+      <div class="relative group h-[300px] md:h-[400px] cursor-pointer">
+        <img
+          src="assets/batu2.jpg"
+          class="w-full h-full object-cover"
+          alt="Motorcycle"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:from-black/50 transition duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4"
+        >
+          <h3 class="text-xl md:text-2xl font-bold tracking-wide">PROJECT</h3>
+        </div>
       </div>
-      <div class="item">
-        <p>🚚</p>
-        <strong>Pengiriman Cepat</strong>
-      </div>
-      <div class="item">
-        <p>📞</p>
-        <strong>Konsultasi Gratis</strong>
+
+      <!-- Item 3 -->
+      <div class="relative group h-[300px] md:h-[400px] cursor-pointer">
+        <img
+          src="assets/batu3.jpg"
+          class="w-full h-full object-cover"
+          alt="Marine"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent group-hover:from-black/50 transition duration-300"
+        ></div>
+        <div
+          class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4"
+        >
+          <h3 class="text-xl md:text-2xl font-bold tracking-wide">GALERI</h3>
+        </div>
       </div>
     </section>
 
-    <section id="produk" class="produk" data-aos="fade-up">
-      <h2>Produk Unggulan</h2>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?andesite,stone"
-          alt="Andesit"
-        />
-        <p>Andesit</p>
-      </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?natural,stone"
-          alt="Palimanan"
-        />
-        <p>Palimanan</p>
-      </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?temple,stone"
-          alt="Candi"
-        />
-        <p>Candi</p>
-      </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?slate,stone"
-          alt="Sabak"
-        />
-        <p>Sabak</p>
-      </div>
-    </section>
-
-    <section id="pemasangan" class="pemasangan">
-      <h2>Jasa Pemasangan</h2>
+    <section class="aboutus">
+      <h2>About Us</h2>
       <p>
-        Kami menyediakan layanan pemasangan batu alam yang rapi dan profesional.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. At adipisci
+        molestias nobis fugit maxime autem reprehenderit, eos laudantium
+        provident beatae deserunt velit sequi. Labore sunt placeat, quos rem
+        odit nulla sapiente quae officia minus quasi tenetur sed, unde optio
+        iste obcaecati dolorum iusto enim neque ea! Error esse numquam tempora.
       </p>
-      <img
-        src="https://source.unsplash.com/600x400/?stone,wall"
-        alt="Pemasangan Batu Alam"
-      />
-      <button class="btn">Lihat Portofolio</button>
     </section>
 
-    <section id="galeri" class="galeri">
-      <h2>Galeri Proyek</h2>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?stone,house"
-          alt="Galeri 1"
-        />
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h2 class="logo">Sinar Pajar Alam Perkasa</h2>
+        </div>
+        <div class="footer-column">
+          <h3>PRODUK & LAYANAN</h3>
+          <ul>
+            <li><a href="#">Batu Andesit</a></li>
+            <li><a href="#">Batu Palimanan</a></li>
+            <li><a href="#">Jasa Pemasangan</a></li>
+            <li><a href="#">Pengiriman</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PROYEK</h3>
+          <ul>
+            <li><a href="#">Portofolio</a></li>
+            <li><a href="#">Galeri</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PERUSAHAAN</h3>
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>HUBUNGI KAMI</h3>
+          <p><strong>WhatsApp:</strong> 0888-0897-5035</p>
+          <p><strong>Email:</strong> batu@nusantara.com</p>
+          <p><strong>Instagram:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>Twitter:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>TikTok:</strong> @sinarpajaralamperkasa</p>
+        </div>
       </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?stone,fence"
-          alt="Galeri 2"
-        />
-      </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?stone,pathway"
-          alt="Galeri 3"
-        />
-      </div>
-      <div class="item">
-        <img
-          src="https://source.unsplash.com/200x150/?stone,interior"
-          alt="Galeri 4"
-        />
-      </div>
-    </section>
-
-    <section class="testimoni">
-      <h2>Testimoni Pelanggan</h2>
-      <blockquote>
-        "Pelayanannya cepat dan hasil pemasangannya sangat memuaskan!"<br />
-        <strong>- Bapak Eko Sutrisno</strong>
-      </blockquote>
-    </section>
-
-    <section id="kontak" class="kontak">
-      <h2>Kontak & CTA</h2>
-      <form>
-        <input type="text" placeholder="Nama Anda" required />
-        <input type="email" placeholder="Email" required />
-        <textarea placeholder="Pesan Anda" rows="4"></textarea>
-        <button class="btn" type="submit">Kirim</button>
-      </form>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Batu Alam Nusantara. All rights reserved.</p>
+      <p class="footer-copy">
+        &copy; 2025 Sinar Pajar Alam Perkasa. All rights reserved.
+      </p>
     </footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
+      const carousel = document.getElementById("carousel");
+      const total = carousel.children.length;
+      let idx = 0;
+
+      document.getElementById("next").onclick = () => {
+        idx = (idx + 1) % total;
+        carousel.style.transform = `translateX(-${idx * 100}%)`;
+      };
+
+      document.getElementById("prev").onclick = () => {
+        idx = (idx - 1 + total) % total;
+        carousel.style.transform = `translateX(-${idx * 100}%)`;
+      };
+
+      setInterval(() => {
+        idx = (idx + 1) % total;
+        carousel.style.transform = `translateX(-${idx * 100}%)`;
+      }, 5000); // auto-slide 5 detik
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("translate-x-full");
+      });
+
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("translate-x-full");
+        });
+      });
     </script>
   </body>
 </html>
