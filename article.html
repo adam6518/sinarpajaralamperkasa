@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinar Pajar Alam Perkasa</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="article.css" />
+  </head>
+  <body>
+    <header
+      class="bg-[#4a2d14] text-white px-4 py-3 flex items-center justify-between"
+    >
+      <!-- Kiri: Logo / Judul -->
+      <h1 class="text-lg font-bold">
+        <a href="/">Sinar Pajar Alam Perkasa</a>
+      </h1>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#produk" class="hover:text-gray-300">Product</a>
+        <a href="/article.html" class="hover:text-gray-300">Article</a>
+        <a href="#galeri" class="hover:text-gray-300">Project</a>
+      </nav>
+
+      <!-- Hamburger Mobile -->
+      <button id="menu-toggle" class="md:hidden ml-auto focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </header>
+    <div
+      id="mobile-menu"
+      class="fixed top-0 right-0 min-h-screen w-2/3 bg-[#1f2937] text-white px-6 py-6 space-y-6 md:hidden z-50 shadow-lg transform translate-x-full transition-transform duration-300 overflow-y-auto"
+    >
+      <a href="#produk" class="block text-lg hover:text-gray-300">Product</a>
+      <a href="/article.html" class="block text-lg hover:text-gray-300"
+        >Article</a
+      >
+      <a href="#galeri" class="block text-lg hover:text-gray-300">Project</a>
+    </div>
+
+    <section class="bg-gray-100 py-12">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-bold mb-6">Search Articles</h2>
+        <div
+          class="flex items-center bg-white shadow rounded-lg overflow-hidden mb-6"
+        >
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search articles..."
+            class="w-full px-4 py-2 focus:outline-none"
+          />
+          <button
+            onclick="searchArticles()"
+            class="bg-[#4a2d14] text-white px-4 py-2 hover:bg-[#6b3a1f] transition"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+
+      <!-- Article List -->
+      <div id="articles" class="max-w-3xl mx-auto space-y-4">
+        <div
+          class="article p-4 bg-white shadow rounded"
+          data-title="Batu Andesit untuk Taman"
+        >
+          <h3 class="font-bold text-lg">Batu Andesit untuk Taman</h3>
+          <p>Artikel tentang penggunaan batu andesit di taman minimalis...</p>
+        </div>
+        <div
+          class="article p-4 bg-white shadow rounded"
+          data-title="Inspirasi Dinding Batu Alam"
+        >
+          <h3 class="font-bold text-lg">Inspirasi Dinding Batu Alam</h3>
+          <p>Cara kreatif menggunakan batu alam di dinding rumah...</p>
+        </div>
+        <div
+          class="article p-4 bg-white shadow rounded"
+          data-title="Tips Perawatan Batu Palimanan"
+        >
+          <h3 class="font-bold text-lg">Tips Perawatan Batu Palimanan</h3>
+          <p>Perawatan batu palimanan agar tetap awet dan indah...</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h2 class="logo">Sinar Pajar Alam Perkasa</h2>
+        </div>
+        <div class="footer-column">
+          <h3>PRODUK & LAYANAN</h3>
+          <ul>
+            <li><a href="#">Batu Andesit</a></li>
+            <li><a href="#">Batu Palimanan</a></li>
+            <li><a href="#">Jasa Pemasangan</a></li>
+            <li><a href="#">Pengiriman</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PROYEK</h3>
+          <ul>
+            <li><a href="#">Portofolio</a></li>
+            <li><a href="#">Galeri</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PERUSAHAAN</h3>
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>HUBUNGI KAMI</h3>
+          <p><strong>WhatsApp:</strong> 0888-0897-5035</p>
+          <p><strong>Email:</strong> batu@nusantara.com</p>
+          <p><strong>Instagram:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>Twitter:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>TikTok:</strong> @sinarpajaralamperkasa</p>
+        </div>
+      </div>
+      <p class="footer-copy">
+        &copy; 2025 Sinar Pajar Alam Perkasa. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+
+      function searchArticles() {
+        const input = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const articles = document.querySelectorAll("#articles .article");
+
+        articles.forEach((article) => {
+          const title = article.dataset.title.toLowerCase();
+          if (title.includes(input)) {
+            article.style.display = "block";
+          } else {
+            article.style.display = "none";
+          }
+        });
+      }
+
+      // Real-time search as user types
+      document
+        .getElementById("searchInput")
+        .addEventListener("keyup", searchArticles);
+
+      const toggleBtn = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      toggleBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("translate-x-full");
+      });
+
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("translate-x-full");
+        });
+      });
+    </script>
+  </body>
+</html>
