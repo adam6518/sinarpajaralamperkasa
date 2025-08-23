@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sinar Pajar Alam Perkasa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
-      rel="stylesheet"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Artikel</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="article.css" />
+    <style>
+      iframe {
+        width: 100%;
+        border: 0;
+      }
+    </style>
   </head>
-  <body>
+  <body class="bg-[#fffaf5] text-[#333]">
     <header
       class="bg-[#4a2d14] text-white px-4 py-3 flex items-center justify-between"
     >
@@ -44,62 +44,26 @@
         </svg>
       </button>
     </header>
-    <div
-      id="mobile-menu"
-      class="fixed top-0 right-0 min-h-screen w-2/3 bg-[#1f2937] text-white px-6 py-6 space-y-6 md:hidden z-50 shadow-lg transform translate-x-full transition-transform duration-300 overflow-y-auto"
-    >
-      <a href="#produk" class="block text-lg hover:text-gray-300">Product</a>
-      <a href="/article.html" class="block text-lg hover:text-gray-300"
-        >Article</a
+    <main class="max-w-5xl mx-auto px-4 py-8">
+      <a href="articles.html" class="text-blue-600 hover:underline"
+        >&larr; Kembali</a
       >
-      <a href="#galeri" class="block text-lg hover:text-gray-300">Project</a>
-    </div>
-
-    <section class="bg-gray-100 py-12">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-bold mb-6">Search Articles</h2>
-        <div
-          class="flex items-center bg-white shadow rounded-lg overflow-hidden mb-6"
-        >
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search articles..."
-            class="w-full px-4 py-2 focus:outline-none"
-          />
-          <button
-            onclick="searchArticles()"
-            class="bg-[#4a2d14] text-white px-4 py-2 hover:bg-[#6b3a1f] transition"
-          >
-            Search
-          </button>
-        </div>
-      </div>
-
-      <!-- Article List -->
-      <div id="articles" class="max-w-3xl mx-auto space-y-4">
-        <div
-          class="article p-4 bg-white shadow rounded"
-          data-title="Batu Andesit untuk Taman"
-        >
-          <h3 class="font-bold text-lg">Batu Andesit untuk Taman</h3>
-          <p>Artikel tentang penggunaan batu andesit di taman minimalis...</p>
-        </div>
-        <div
-          class="article p-4 bg-white shadow rounded"
-          data-title="Inspirasi Dinding Batu Alam"
-        >
-          <h3 class="font-bold text-lg">Inspirasi Dinding Batu Alam</h3>
-          <p>Cara kreatif menggunakan batu alam di dinding rumah...</p>
-        </div>
-        <div
-          class="article p-4 bg-white shadow rounded"
-          data-title="Tips Perawatan Batu Palimanan"
-        >
-          <h3 class="font-bold text-lg">Tips Perawatan Batu Palimanan</h3>
-          <p>Perawatan batu palimanan agar tetap awet dan indah...</p>
-        </div>
-      </div>
+      <h1 id="title" class="text-2xl font-bold mt-4 mb-4"></h1>
+      <iframe
+        id="viewer"
+        src=""
+        onload="this.style.height=this.contentWindow.document.body.scrollHeight+'px'"
+      ></iframe>
+    </main>
+    <section class="aboutus">
+      <h2>About Us</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. At adipisci
+        molestias nobis fugit maxime autem reprehenderit, eos laudantium
+        provident beatae deserunt velit sequi. Labore sunt placeat, quos rem
+        odit nulla sapiente quae officia minus quasi tenetur sed, unde optio
+        iste obcaecati dolorum iusto enim neque ea! Error esse numquam tempora.
+      </p>
     </section>
 
     <footer class="footer">
@@ -144,43 +108,20 @@
       </p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init();
+      // Dapatkan ?s=slug dari URL
+      const params = new URLSearchParams(location.search);
+      const slug = params.get("s");
+      if (!slug) location.href = "articles.html";
 
-      function searchArticles() {
-        const input = document
-          .getElementById("searchInput")
-          .value.toLowerCase();
-        const articles = document.querySelectorAll("#articles .article");
-
-        articles.forEach((article) => {
-          const title = article.dataset.title.toLowerCase();
-          if (title.includes(input)) {
-            article.style.display = "block";
-          } else {
-            article.style.display = "none";
-          }
+      fetch("/data/articles.json")
+        .then((r) => r.json())
+        .then((list) => {
+          const item = list.find((a) => a.slug === slug);
+          if (!item) return location.replace("articles.html");
+          document.getElementById("title").textContent = item.title;
+          document.getElementById("viewer").src = item.url; // tampilkan HTML hasil konversi apa adanya
         });
-      }
-
-      // Real-time search as user types
-      document
-        .getElementById("searchInput")
-        .addEventListener("keyup", searchArticles);
-
-      const toggleBtn = document.getElementById("menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      toggleBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("translate-x-full");
-      });
-
-      document.querySelectorAll("#mobile-menu a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("translate-x-full");
-        });
-      });
     </script>
   </body>
 </html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Artikel</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="articles.css" />
+  </head>
+  <body class="bg-[#fffaf5] text-[#333]">
+    <header
+      class="bg-[#4a2d14] text-white px-4 py-3 flex items-center justify-between"
+    >
+      <!-- Kiri: Logo / Judul -->
+      <h1 class="text-lg font-bold">
+        <a href="/">Sinar Pajar Alam Perkasa</a>
+      </h1>
+
+      <!-- Menu Desktop -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="#produk" class="hover:text-gray-300">Product</a>
+        <a href="/article.html" class="hover:text-gray-300">Article</a>
+        <a href="#galeri" class="hover:text-gray-300">Project</a>
+      </nav>
+
+      <!-- Hamburger Mobile -->
+      <button id="menu-toggle" class="md:hidden ml-auto focus:outline-none">
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </header>
+    <main class="max-w-5xl mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-6">Artikel</h1>
+
+      <input
+        id="q"
+        type="search"
+        placeholder="Cari artikel…"
+        class="w-full p-3 border rounded mb-6"
+      />
+
+      <div id="list" class="space-y-6"></div>
+    </main>
+    <section class="aboutus">
+      <h2>About Us</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. At adipisci
+        molestias nobis fugit maxime autem reprehenderit, eos laudantium
+        provident beatae deserunt velit sequi. Labore sunt placeat, quos rem
+        odit nulla sapiente quae officia minus quasi tenetur sed, unde optio
+        iste obcaecati dolorum iusto enim neque ea! Error esse numquam tempora.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-column">
+          <h2 class="logo">Sinar Pajar Alam Perkasa</h2>
+        </div>
+        <div class="footer-column">
+          <h3>PRODUK & LAYANAN</h3>
+          <ul>
+            <li><a href="#">Batu Andesit</a></li>
+            <li><a href="#">Batu Palimanan</a></li>
+            <li><a href="#">Jasa Pemasangan</a></li>
+            <li><a href="#">Pengiriman</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PROYEK</h3>
+          <ul>
+            <li><a href="#">Portofolio</a></li>
+            <li><a href="#">Galeri</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>PERUSAHAAN</h3>
+          <ul>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>HUBUNGI KAMI</h3>
+          <p><strong>WhatsApp:</strong> 0888-0897-5035</p>
+          <p><strong>Email:</strong> batu@nusantara.com</p>
+          <p><strong>Instagram:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>Twitter:</strong> @sinarpajaralamperkasa</p>
+          <p><strong>TikTok:</strong> @sinarpajaralamperkasa</p>
+        </div>
+      </div>
+      <p class="footer-copy">
+        &copy; 2025 Sinar Pajar Alam Perkasa. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      let data = [];
+      const listEl = document.getElementById("list");
+      const qEl = document.getElementById("q");
+
+      fetch("/data/articles.json")
+        .then((r) => r.json())
+        .then((json) => {
+          data = json;
+          render("");
+        });
+
+      qEl.addEventListener("input", (e) =>
+        render(e.target.value.toLowerCase())
+      );
+
+      function render(q) {
+        const items = data.filter(
+          (a) =>
+            !q ||
+            a.title.toLowerCase().includes(q) ||
+            a.excerpt.toLowerCase().includes(q)
+        );
+        listEl.innerHTML =
+          items
+            .map(
+              (a) => `
+        <article class="p-4 rounded bg-white shadow">
+          <h2 class="text-xl font-semibold mb-2">
+            <a class="hover:underline" href="/article.html?s=${a.slug}">${a.title}</a>
+          </h2>
+          <p class="text-sm text-gray-600">${a.excerpt}</p>
+        </article>
+      `
+            )
+            .join("") || "<p>Tidak ada hasil.</p>";
+      }
+    </script>
+  </body>
+</html>

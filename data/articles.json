@@ -1,17 +1,9 @@
 [
   {
-    "title": "Batuan Umum",
-    "image": "assets/batu1.jpg",
-    "file": "articles/batuan-umum.md"
-  },
-  {
-    "title": "Inspirasi Dinding Batu Alam",
-    "image": "assets/batu2.jpg",
-    "file": "articles/inspirasi-dinding-batu.md"
-  },
-  {
-    "title": "Tips Perawatan Batu Palimanan",
-    "image": "assets/batu3.jpg",
-    "file": "articles/tips-perawatan-palimanan.md"
+    "title": "artikel batuan umum",
+    "slug": "artikel-batuan-umum",
+    "url": "/content/articles/artikel-batuan-umum.html",
+    "cover": null,
+    "excerpt": "Guys , apakah kamu pernah mendengar kata litosfer? Litosfer adalah salah satu nama lapisan yang menyelubungi bumi. Terus, apa yang terjadi kalau gak ada litosfer? Yang pasti, manus…"
   }
 ]
